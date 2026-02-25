@@ -5,15 +5,15 @@ from models import Message
 class ChatMessage(ft.Row):
     def __init__(self, message: Message):
         super().__init__()
-        self.message = message
+        self.message = message                                                  # Message model
         self.vertical_alignment = ft.CrossAxisAlignment.START
         self.controls = [
-            ft.CircleAvatar(
+            ft.CircleAvatar(                                                    # Circle avatar
                 content=ft.Text(self.get_initials(self.message.user)),
                 color=ft.Colors.WHITE,
                 bgcolor=self.get_avatar_color(self.message.user),
             ),
-            ft.Column(
+            ft.Column(                                                          # Column component
                 tight=True,
                 spacing=5,
                 controls=[
@@ -23,13 +23,13 @@ class ChatMessage(ft.Row):
             ),
         ]
 
-    def get_initials(self, user_name: str) -> str:
+    def get_initials(self, user_name: str) -> str:                              # slef util function for get initials from username
         if user_name:
             return user_name[:1].capitalize()
         else:
             return "Unknown"
         
-    def get_avatar_color(self, user_name: str):
+    def get_avatar_color(self, user_name: str):                                 # self util function for set user color
         colors_lookup = [
             ft.Colors.AMBER,
             ft.Colors.BLUE,
