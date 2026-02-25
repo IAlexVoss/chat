@@ -13,7 +13,6 @@ class ChatController:
 
         self.page.pubsub.subscribe(self.on_message)     # subscrubing the sub
 
-    @DeprecationWarning
     def join_click(self, e: ft.ControlEvent):                                       # On join user the chat
 
         # If no user name value (new user in chat)
